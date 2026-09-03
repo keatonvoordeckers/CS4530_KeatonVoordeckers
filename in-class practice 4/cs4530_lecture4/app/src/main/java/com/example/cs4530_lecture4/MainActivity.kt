@@ -5,13 +5,15 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
-
+import androidx.core.view.WindowCompat.enableEdgeToEdge
 
 
 class MainActivity : ComponentActivity() {
@@ -40,7 +42,13 @@ fun KeatonApp() {
         OutlinedTextField(
             value = text2,
             onValueChange = {text2 = it}
-
         )
+        // Button to combine inputs
+        Button(onClick = { result = text1 + text2 }) {
+            Text("Combine")
+        }
+
+        Text(result) // Show result
+
     }
 }
