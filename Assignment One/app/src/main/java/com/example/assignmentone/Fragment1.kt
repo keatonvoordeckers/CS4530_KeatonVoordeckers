@@ -38,14 +38,64 @@ class Fragment1 : Fragment() {
         return inflater.inflate(R.layout.fragment_1, container, false)
     }
 
-    // Override to set listeners for each button within fragment1
+    // Override to create on click listeners for each button within fragment1
+    /**
+     *
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //
+        // Define behavior of all buttons in fragment1
         view.findViewById<Button>(R.id.button1).setOnClickListener {
-            // Call method
+            // Call method for send data:
+            val buttonText = view.findViewById<Button>(R.id.button1).text.toString()
+            sendDataToFragment2(buttonText)
         }
+
+        view.findViewById<Button>(R.id.button2).setOnClickListener {
+            // Call method for send data:
+            val buttonText = view.findViewById<Button>(R.id.button2).text.toString()
+            sendDataToFragment2(buttonText)
+        }
+
+        view.findViewById<Button>(R.id.button3).setOnClickListener {
+            // Call method for send data:
+            val buttonText = view.findViewById<Button>(R.id.button3).text.toString()
+            sendDataToFragment2(buttonText)
+        }
+
+        view.findViewById<Button>(R.id.button4).setOnClickListener {
+            // Call method for send data:
+            val buttonText = view.findViewById<Button>(R.id.button4).text.toString()
+            sendDataToFragment2(buttonText)
+        }
+
+        view.findViewById<Button>(R.id.button5).setOnClickListener {
+            // Call method for send data:
+            val buttonText = view.findViewById<Button>(R.id.button5).text.toString()
+            sendDataToFragment2(buttonText)
+        }
+
+        view.findViewById<Button>(R.id.exit_button).setOnClickListener {
+            // Exit app
+            requireActivity().finish()
+        }
+
+    }
+
+    fun sendDataToFragment2(buttonText: String){
+        // Create instance of fragment2
+        val fragment2 = Fragment2()
+        val sentData = Bundle()
+
+        val fTrans = parentFragmentManager.beginTransaction()
+
+        sentData.putString("selectedButtonText", buttonText)
+        fragment2.arguments = sentData
+
+        // Replace the fragment container
+        fTrans.replace(R.id.fragment_container, fragment2, "some_tag")
+        fTrans.commit()
     }
 
     companion object {
@@ -67,16 +117,4 @@ class Fragment1 : Fragment() {
                 }
             }
     }
-
-    // Create instance of fragment2
-    val fragment2 = Fragment2()
-    val sentData = Bundle()
-
-    // Read and send button text to fragment 2 on button press
-    findViewById<Button>(R.id.button1).setOnClickListener {
-        //
-    }
-
-    sentData.putString("SomeKey", "SomeValue")
-    fragment2.arguments = sentData
 }

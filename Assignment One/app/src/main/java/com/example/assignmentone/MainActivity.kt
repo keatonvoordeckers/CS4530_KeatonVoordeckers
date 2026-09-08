@@ -19,13 +19,6 @@ class MainActivity : AppCompatActivity() {
 
         // Create instance of fragment1
         val fragment1 = Fragment1()
-        val sentData = Bundle()
-
-        //
-        sentData.putString("SomeKey", "SomeValue")
-        fragment1.arguments = sentData
-
-        //Use parentFragmentManager if inside a fragment
         val fTrans = supportFragmentManager.beginTransaction()
 
         // Replace the fragment container
