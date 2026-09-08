@@ -12,7 +12,7 @@ private const val ARG_SELECTED_BUTTON_TEXT = "selectedButtonText"
 
 /**
  * A simple [Fragment] subclass.
- * Holds a button to return to the previous screen and some text representing the button that was
+ * Holds a button to return to [Fragment1] and some text representing the button that was
  * pressed on the previous screen.
  *
  * @author Keaton Voordeckers
@@ -22,8 +22,10 @@ class Fragment2 : Fragment() {
     private var selectedButtonText: String? = null
 
     /**
+     * Retrieves the selected button text passed from Fragment1 and stores it for display after
+     * Fragment2's view is created.
      *
-     * @param savedInstanceState
+     * @param savedInstanceState Previously saved fragment state, null if none exists.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +35,7 @@ class Fragment2 : Fragment() {
     }
 
     /**
-     *
+     * Inflates and returns the layout used by [Fragment2].
      */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,9 +46,11 @@ class Fragment2 : Fragment() {
     }
 
     /**
-     * Override to create on click listeners for button within fragment2
-     * @param view
-     * @param savedInstanceState
+     * Override to create on click listeners for buttons and define behavior for
+     * textview in [Fragment2].
+     *
+     * @param view Root view of Fragment2's layout.
+     * @param savedInstanceState Previously saved fragment state, null if none exists.
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         // Define behavior of button in fragment2
@@ -68,7 +72,7 @@ class Fragment2 : Fragment() {
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
          *
-         * @param selectedButtonText Parameter 1.
+         * @param selectedButtonText Pressed button text passed in from Fragment1.
          * @return A new instance of fragment Fragment2.
          */
         @JvmStatic

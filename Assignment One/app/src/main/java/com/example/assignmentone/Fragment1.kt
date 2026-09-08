@@ -10,7 +10,7 @@ import android.widget.Button
 /**
  * A simple [Fragment] subclass.
  * Hold five buttons: 1-5, and an additional button to exit the program. On press of a button this
- * fragment navigates to the other.
+ * fragment navigates to [Fragment2].
  *
  * @author Keaton Voordeckers
  * @date September 8th, 2026
@@ -18,7 +18,7 @@ import android.widget.Button
 class Fragment1 : Fragment() {
 
     /**
-     *
+     * Inflates and returns the layout used by [Fragment1].
      */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,9 +29,10 @@ class Fragment1 : Fragment() {
     }
 
     /**
-     * Override to create on click listeners for each button within fragment1
-     * @param view
-     * @param savedInstanceState
+     * Override to create on click listeners for each button within [Fragment1].
+     *
+     * @param view Root view of Fragment1's layout.
+     * @param savedInstanceState Previously saved fragment saved, null if none exists.
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -74,8 +75,10 @@ class Fragment1 : Fragment() {
     }
 
     /**
-     * ...
-     * @param buttonText
+     * Takes in the text of the pressed button and then sends it in a bundle to be display in
+     * fragment 2. Displays fragment 2 on a button press.
+     *
+     * @param buttonText String representing the text of the pressed button.
      */
     fun sendDataToFragment2(buttonText: String){
         // Create instance of fragment2

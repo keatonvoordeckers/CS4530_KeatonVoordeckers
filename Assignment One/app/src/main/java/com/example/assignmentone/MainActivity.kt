@@ -15,8 +15,10 @@ import androidx.core.view.WindowInsetsCompat
  */
 class MainActivity : AppCompatActivity() {
     /**
-     * ...
-     * @param savedInstanceState
+     * Initializes the activity and displays Fragment1 to start.
+     *
+     * @param savedInstanceState previously saved activity state, null when activity is being
+     *                           created for the first time.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
