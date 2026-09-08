@@ -9,11 +9,17 @@ import android.widget.Button
 
 /**
  * A simple [Fragment] subclass.
- * Use the [Fragment1.newInstance] factory method to
- * create an instance of this fragment.
+ * Hold five buttons: 1-5, and an additional button to exit the program. On press of a button this
+ * fragment navigates to the other.
+ *
+ * @author Keaton Voordeckers
+ * @date September 8th, 2026
  */
 class Fragment1 : Fragment() {
 
+    /**
+     *
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -65,7 +71,6 @@ class Fragment1 : Fragment() {
             // Exit app
             requireActivity().finish()
         }
-
     }
 
     /**

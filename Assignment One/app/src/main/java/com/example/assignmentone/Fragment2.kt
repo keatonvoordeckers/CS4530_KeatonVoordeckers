@@ -8,17 +8,23 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 
-// TODO: Rename parameter arguments, choose names that match
 private const val ARG_SELECTED_BUTTON_TEXT = "selectedButtonText"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [Fragment2.newInstance] factory method to
- * create an instance of this fragment.
+ * Holds a button to return to the previous screen and some text representing the button that was
+ * pressed on the previous screen.
+ *
+ * @author Keaton Voordeckers
+ * @date September 8th, 2026
  */
 class Fragment2 : Fragment() {
     private var selectedButtonText: String? = null
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -26,6 +32,9 @@ class Fragment2 : Fragment() {
         }
     }
 
+    /**
+     *
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
