@@ -17,17 +17,19 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val fragment1 = Fragment1();
-        val sentData = Bundle();
+        // Create instance of fragment1
+        val fragment1 = Fragment1()
+        val sentData = Bundle()
 
+        //
         sentData.putString("SomeKey", "SomeValue")
         fragment1.arguments = sentData
 
         //Use parentFragmentManager if inside a fragment
         val fTrans = supportFragmentManager.beginTransaction()
 
-        //Replace the fragment container
-        fTrans.replace(R.id.fl_frag_container, myFragment, "some_tag")
+        // Replace the fragment container
+        fTrans.replace(R.id.fragment_container, fragment1, "some_tag")
         fTrans.commit()
     }
 }

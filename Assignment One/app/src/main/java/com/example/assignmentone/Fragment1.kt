@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,6 +38,16 @@ class Fragment1 : Fragment() {
         return inflater.inflate(R.layout.fragment_1, container, false)
     }
 
+    // Override to set listeners for each button within fragment1
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        //
+        view.findViewById<Button>(R.id.button1).setOnClickListener {
+            // Call method
+        }
+    }
+
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -56,4 +67,16 @@ class Fragment1 : Fragment() {
                 }
             }
     }
+
+    // Create instance of fragment2
+    val fragment2 = Fragment2()
+    val sentData = Bundle()
+
+    // Read and send button text to fragment 2 on button press
+    findViewById<Button>(R.id.button1).setOnClickListener {
+        //
+    }
+
+    sentData.putString("SomeKey", "SomeValue")
+    fragment2.arguments = sentData
 }
