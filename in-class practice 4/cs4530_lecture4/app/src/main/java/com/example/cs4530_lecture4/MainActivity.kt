@@ -57,6 +57,5 @@ fun KeatonApp() {
         }
 
         Text(result) // Show result
-
     }
 }
