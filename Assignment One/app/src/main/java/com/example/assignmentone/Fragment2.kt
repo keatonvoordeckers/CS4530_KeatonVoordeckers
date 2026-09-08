@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,6 +36,24 @@ class Fragment2 : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_2, container, false)
+    }
+
+    /**
+     * Override to create on click listeners for button within fragment2
+     * @param view
+     * @param savedInstanceState
+     */
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        // Define behavior of button in fragment2
+        view.findViewById<Button>(R.id.back_button).setOnClickListener {
+            val fragment1 = Fragment1()
+            val fTrans = parentFragmentManager.beginTransaction()
+
+            // Replace the fragment container
+            fTrans.replace(R.id.fragment_container, fragment1, "some_tag")
+            fTrans.commit()
+        }
+
     }
 
     companion object {

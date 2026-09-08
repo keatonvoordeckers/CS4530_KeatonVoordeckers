@@ -38,9 +38,10 @@ class Fragment1 : Fragment() {
         return inflater.inflate(R.layout.fragment_1, container, false)
     }
 
-    // Override to create on click listeners for each button within fragment1
     /**
-     *
+     * Override to create on click listeners for each button within fragment1
+     * @param view
+     * @param savedInstanceState
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -83,11 +84,14 @@ class Fragment1 : Fragment() {
 
     }
 
+    /**
+     * ...
+     * @param buttonText
+     */
     fun sendDataToFragment2(buttonText: String){
         // Create instance of fragment2
         val fragment2 = Fragment2()
         val sentData = Bundle()
-
         val fTrans = parentFragmentManager.beginTransaction()
 
         sentData.putString("selectedButtonText", buttonText)
