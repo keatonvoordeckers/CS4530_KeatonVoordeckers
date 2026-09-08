@@ -16,5 +16,18 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val fragment1 = Fragment1();
+        val sentData = Bundle();
+
+        sentData.putString("SomeKey", "SomeValue")
+        fragment1.arguments = sentData
+
+        //Use parentFragmentManager if inside a fragment
+        val fTrans = supportFragmentManager.beginTransaction()
+
+        //Replace the fragment container
+        fTrans.replace(R.id.fl_frag_container, myFragment, "some_tag")
+        fTrans.commit()
     }
 }
