@@ -9,7 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 
 // TODO: Rename parameter arguments, choose names that match
-private const val ARG_SELECTED_BUTTON_TEXT = "param1"
+private const val ARG_SELECTED_BUTTON_TEXT = "selectedButtonText"
 
 /**
  * A simple [Fragment] subclass.
@@ -17,13 +17,12 @@ private const val ARG_SELECTED_BUTTON_TEXT = "param1"
  * create an instance of this fragment.
  */
 class Fragment2 : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
+    private var selectedButtonText: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_SELECTED_BUTTON_TEXT)
+            selectedButtonText = it.getString(ARG_SELECTED_BUTTON_TEXT)
         }
     }
 
@@ -52,7 +51,7 @@ class Fragment2 : Fragment() {
         }
 
         // Define behavior for textview in fragment2
-        view.findViewById<TextView>(R.id.pressed_text).setText(param1)
+        view.findViewById<TextView>(R.id.pressed_text).setText(selectedButtonText)
     }
 
     companion object {
@@ -60,15 +59,14 @@ class Fragment2 : Fragment() {
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
          *
-         * @param param1 Parameter 1.
+         * @param selectedButtonText Parameter 1.
          * @return A new instance of fragment Fragment2.
          */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(selectedButtonText: String) =
             Fragment2().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_SELECTED_BUTTON_TEXT, param1)
+                    putString(ARG_SELECTED_BUTTON_TEXT, selectedButtonText)
                 }
             }
     }
