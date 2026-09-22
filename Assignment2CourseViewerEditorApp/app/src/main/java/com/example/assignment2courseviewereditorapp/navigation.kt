@@ -19,7 +19,7 @@ fun MyAppNav(
         }
 
         composable("addCourse") {
-            AddCourseScreen(myNavController)
+            AddCourseScreen(myNavController, model)
         }
 
         composable("editCourse/{courseId}") { backStackEntry ->
@@ -29,7 +29,8 @@ fun MyAppNav(
 
             CourseDetailsScreen(
                 myNavController,
-                courseId
+                courseId,
+                model
             )
         }
 
@@ -40,7 +41,8 @@ fun MyAppNav(
 
             CourseDetailsScreen(
                 myNavController,
-                courseId
+                courseId,
+                model
             )
         }
     }

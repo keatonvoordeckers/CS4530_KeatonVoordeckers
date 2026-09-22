@@ -11,9 +11,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import com.example.assignment2courseviewereditorapp.viewmodel.CourseViewModel
 
 @Composable
-fun CourseDetailsScreen(myNavController : NavHostController, courseId : Int?) {
+fun CourseDetailsScreen(myNavController : NavHostController, courseId : Int?, model : CourseViewModel) {
     LazyColumn(Modifier.fillMaxWidth().statusBarsPadding(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center) {
