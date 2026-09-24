@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.runtime.Composable
@@ -38,40 +39,62 @@ val model = CourseViewModel()
 @Composable
 fun CourseListScreen(myNavController : NavHostController) {
 
-    LazyColumn(modifier = Modifier.padding(horizontal = 25.dp, vertical = 50.dp).fillMaxSize().background(Color.Gray, RoundedCornerShape(5)),
+    LazyColumn(modifier = Modifier.padding(horizontal = 25.dp, vertical = 100.dp)
+        .fillMaxSize()
+        .background(Color.LightGray, RoundedCornerShape(5)),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-        userScrollEnabled = true) {
+        verticalArrangement = Arrangement.spacedBy(10.dp),
+        ) {
 
         items(model.courses) { course ->
-            Row(Modifier.background(Color.LightGray, RoundedCornerShape(10))
-                .clickable(enabled = true, onClick = { myNavController.navigate("courseDetails/${course.id}") })){
-
-                Spacer(modifier = Modifier.width(10.dp))
-
-                Column{
-                    Text("Course: " + course.department + " " + course.courseNumber)
-                    Text("Location: " + course.location)
-                }
-
-                Spacer(modifier = Modifier.width(75.dp))
-
-                Button(onClick = { myNavController.navigate("editCourse/${course.id}") } ) {
-                    Text("Edit")
-                }
-
-                Button(onClick = { myNavController.navigate("removeCourse/${course.id}") }) {
-                    Text("X")
-                }
-
-                Spacer(modifier = Modifier.width(10.dp))
-            }
 
             Spacer(modifier = Modifier.height(10.dp))
+
+            Row(Modifier.background(Color.White, RoundedCornerShape(10))
+                .clickable(enabled = true, onClick = { myNavController.navigate("courseDetails/${model}/${course.id}") })
+                .size(350.dp,75.dp)
+                .animateItem()
+
+            ){
+                Spacer(modifier = Modifier.width(10.dp))
+
+                Column(modifier = Modifier.weight(1f)) {
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Text(text ="Course: ${course.department} ${course.courseNumber}")
+                    Text(text = "Location: ${course.location}")
+                }
+
+                Column{
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Button(
+                        onClick = { myNavController.navigate("editCourse/${model}/${course.id}") },
+                        modifier = Modifier.size(100.dp, 55.dp)
+                    ) {
+                        Text(text = "Edit")
+                    }
+                }
+
+                Spacer(modifier = Modifier.width(5.dp))
+
+                Column{
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Button(
+                        onClick = { model.removeCourse(course) },
+                        modifier = Modifier.size(55.dp, 55.dp)
+                    ) {
+                        Spacer(modifier = Modifier.height(10.dp))
+                        Text(text = "x")
+                    }
+                }
+                Spacer(modifier = Modifier.width(10.dp))
+            }
         }
     }
 
-    Button(modifier = Modifier.absoluteOffset(300.dp, 800.dp), onClick = { myNavController.navigate("addCourse") }) {
+    Button(onClick = { myNavController.navigate("addCourse") },
+        modifier = Modifier.absoluteOffset(320.dp, 825.dp)
+            .size(55.dp, 55.dp)
+    ) {
         Text(text = "+")
     }
 

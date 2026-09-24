@@ -10,13 +10,16 @@ class CourseViewModel : ViewModel() {
     // List backing
     var courses by mutableStateOf<List<Course>>(emptyList())
 
+    var id by mutableStateOf(0)
+
     //
-    fun addCourse(course: Course){
+    fun addCourse(course : Course){
+        course.id = id++
         courses += course
     }
 
     //
-    fun editCourse(course: Course){
+    fun editCourse(course : Course){
         courses.get(course.id - 1).id = course.id
         courses.get(course.id - 1).department = course.department
         courses.get(course.id - 1).courseNumber = course.courseNumber
@@ -24,7 +27,22 @@ class CourseViewModel : ViewModel() {
     }
 
     //
-    fun removeCourse(course: Course){
+    fun getCourse(id: Int): Course? {
+        for (course in courses) {
+            if (course.id == id) {
+                return course
+            }
+        }
+        return null
+    }
+
+    //
+    //fun getId(): Int {
+     //   return id
+    //}
+
+    //
+    fun removeCourse(course : Course){
         courses -= course
     }
 }
