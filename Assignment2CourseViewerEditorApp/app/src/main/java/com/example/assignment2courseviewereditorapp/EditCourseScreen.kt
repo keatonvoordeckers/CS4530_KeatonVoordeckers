@@ -62,7 +62,7 @@ fun EditCourseScreen(myNavController : NavHostController, model : CourseViewMode
         .background(Color.LightGray, RoundedCornerShape(5)),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
-        userScrollEnabled = true) {
+        userScrollEnabled = false) {
 
         // Department input
         item {

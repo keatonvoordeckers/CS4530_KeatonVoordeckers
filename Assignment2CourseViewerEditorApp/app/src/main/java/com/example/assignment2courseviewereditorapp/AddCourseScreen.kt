@@ -48,7 +48,7 @@ fun AddCourseScreen(myNavController : NavHostController, model : CourseViewModel
         .background(Color.LightGray, RoundedCornerShape(5)),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
-        userScrollEnabled = true) {
+        userScrollEnabled = false) {
 
         // Department input
         item {
@@ -101,7 +101,6 @@ fun AddCourseScreen(myNavController : NavHostController, model : CourseViewModel
                     location.isNotBlank()
                 ) {
                     model.addCourse(course)
-                    println(course.id.toString())
                     myNavController.navigate("courseList")
                 } else {
                     myNavController.navigate("courseList")
