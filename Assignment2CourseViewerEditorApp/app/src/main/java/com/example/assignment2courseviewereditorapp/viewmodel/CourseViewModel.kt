@@ -19,30 +19,14 @@ class CourseViewModel : ViewModel() {
     }
 
     //
-    fun editCourse(course : Course){
-        courses.get(course.id - 1).id = course.id
-        courses.get(course.id - 1).department = course.department
-        courses.get(course.id - 1).courseNumber = course.courseNumber
-        courses.get(course.id - 1).location = course.location
+    fun editCourse(old_course: Course, new_course: Course){
+        old_course.department = new_course.department
+        old_course.courseNumber = new_course.courseNumber
+        old_course.location = new_course.location
     }
 
     //
-    fun getCourse(id: Int): Course? {
-        for (course in courses) {
-            if (course.id == id) {
-                return course
-            }
-        }
-        return null
-    }
-
-    //
-    //fun getId(): Int {
-     //   return id
-    //}
-
-    //
-    fun removeCourse(course : Course){
+    fun removeCourse(course: Course){
         courses -= course
     }
 }

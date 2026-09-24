@@ -22,28 +22,20 @@ fun MyAppNav(
             AddCourseScreen(myNavController, model)
         }
 
-        composable("editCourse/{model}/{courseId}") { backStackEntry ->
+        composable("editCourse/{courseId}") { backStackEntry ->
             val courseId = backStackEntry.arguments
                 ?.getString("courseId")
-                ?.toIntOrNull()
+                ?.toIntOrNull() ?: return@composable
 
-            EditCourseScreen(
-                myNavController,
-                model,
-                courseId
-            )
+            EditCourseScreen(myNavController, model, courseId)
         }
 
-        composable("courseDetails/{model}/{courseId}") { backStackEntry ->
+        composable("courseDetails/{courseId}") { backStackEntry ->
             val courseId = backStackEntry.arguments
                 ?.getString("courseId")
-                ?.toIntOrNull()
+                ?.toIntOrNull() ?: return@composable
 
-            CourseDetailsScreen(
-                myNavController,
-                model,
-                courseId
-            )
+            CourseDetailsScreen(myNavController, model, courseId)
         }
     }
 }

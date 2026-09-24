@@ -30,7 +30,6 @@ import com.example.assignment2courseviewereditorapp.viewmodel.CourseViewModel
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.material3.OutlinedTextFieldDefaults
-import androidx.compose.ui.draw.shadow
 
 @Composable
 fun AddCourseScreen(myNavController : NavHostController, model : CourseViewModel) {
@@ -101,15 +100,15 @@ fun AddCourseScreen(myNavController : NavHostController, model : CourseViewModel
                     courseNumber.isNotBlank() &&
                     location.isNotBlank()
                 ) {
-                    course.id = model.id ++
                     model.addCourse(course)
+                    println(course.id.toString())
                     myNavController.navigate("courseList")
                 } else {
                     myNavController.navigate("courseList")
                 }},
                 modifier = Modifier.size(100.dp, 55.dp)
             ) {
-                Text("Add")
+                Text(text = "Add")
             }
         }
     }
